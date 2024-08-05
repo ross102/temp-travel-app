@@ -6,8 +6,8 @@ import { createProfileAction } from '@/utils/actions';
 function CreateProfile() {
   return (
     <section>
-      <h1 className='text-2xl font-semibold mb-8 capitalize'>new user</h1>
-      <div className='border p-8 rounded-md max-w-lg'>
+      <h1 className='text-2xl font-semibold mb-8 text-center capitalize'>User</h1>
+      <div className='border p-8 mx-auto rounded-md max-w-lg'>
         <FormContainer action={createProfileAction}>
           <div className='grid gap-4 mt-4 '>
             <FormInput type='text' name='firstName' label='First Name' />

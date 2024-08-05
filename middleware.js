@@ -11,8 +11,7 @@ export async function middleware(request) {
   }
 
   if (user && request.nextUrl.pathname.startsWith('/login')) {
-    console.log(user);
-    return Response.redirect(new URL('/profile/create', request.url))
+    return Response.redirect(new URL('/profile', request.url))
   }
   return await updateSession(request)
 }
