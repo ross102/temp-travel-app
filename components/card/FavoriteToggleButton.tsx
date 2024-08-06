@@ -1,10 +1,20 @@
 import { FaHeart } from 'react-icons/fa';
 import { Button } from '@/components/ui/button';
-function FavoriteToggleButton({ propertyId }: { propertyId: string }) {
-  return (
-    <Button size='icon' variant='outline' className='p-2 cursor-pointer'>
-      <FaHeart />
-    </Button>
-  );
+import { getAuthUser, fetchFavoriteId } from "@/utils/actions"
+import { redirect } from 'next/navigation';
+import FavoriteToggleForm from "./FavoriteToggleForm"
+
+
+
+async function FavoriteToggleButton({ propertyId }: { propertyId: string }) {
+  const user = await getAuthUser();
+  
+  if(!user) {
+    redirect('/')
+  }
+  const favoriteId = await fetchFavoriteId({ propertyId });
+
+  return <FavoriteToggleForm favoriteId={favoriteId} propertyId={propertyId} />
+
 }
 export default FavoriteToggleButton;
