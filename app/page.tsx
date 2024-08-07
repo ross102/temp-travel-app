@@ -9,7 +9,9 @@ function HomePage({
   // console.log(searchParams);
 
   return (
+
     <section>
+      
       <CategoriesList
         category={searchParams?.category}
         search={searchParams?.search}
@@ -18,7 +20,9 @@ function HomePage({
         category={searchParams?.category}
         search={searchParams?.search}
       />
+      
     </section>
+    
   );
 }
 export default HomePage;
