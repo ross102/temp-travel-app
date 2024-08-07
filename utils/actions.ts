@@ -147,7 +147,7 @@ export async function login(prevState: any, formData: FormData) {
   export const updateProfileAction = async (
     prevState: any,
     formData: FormData
-  ) => {
+  ): Promise<any> => {
     const user = await getAuthUser();
    
    if(user) {

@@ -6,6 +6,9 @@ import { SubmitButton } from '@/components/form/Buttons';
 
 async function ProfilePage() {
   const profile = await fetchProfile();
+  if(!profile) {
+    return
+  }
 
   return (
     <section>

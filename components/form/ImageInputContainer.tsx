@@ -11,7 +11,7 @@ import { LuUser2 } from 'react-icons/lu';
 type ImageInputContainerProps = {
   image: string;
   name: string;
-  action: actionFunction;
+  action: any;
   text: string;
   children?: React.ReactNode;
 };
