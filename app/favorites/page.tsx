@@ -5,10 +5,10 @@ import { fetchFavorites } from '@/utils/actions';
 async function FavoritesPage() {
   const favorites = await fetchFavorites();
 
-  if (favorites.length === 0) {
+  if (favorites?.length === 0) {
     return <EmptyList />;
   }
 
-  return <PropertiesList properties={favorites} />;
+  return <PropertiesList properties={favorites ?? []} />;
 }
 export default FavoritesPage;

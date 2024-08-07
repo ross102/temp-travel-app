@@ -10,7 +10,7 @@ async function FavoriteToggleButton({ propertyId }: { propertyId: string }) {
   const user = await getAuthUser();
   
   if(!user) {
-    return 
+    return null
   }
   const favoriteId = await fetchFavoriteId({ propertyId }) ?? ''
 
