@@ -10,11 +10,12 @@ async function FavoriteToggleButton({ propertyId }: { propertyId: string }) {
   const user = await getAuthUser();
   
   if(!user) {
-    redirect('/')
+    return 
   }
-  const favoriteId = await fetchFavoriteId({ propertyId });
+  const favoriteId = await fetchFavoriteId({ propertyId }) ?? ''
 
   return <FavoriteToggleForm favoriteId={favoriteId} propertyId={propertyId} />
+
 
 }
 export default FavoriteToggleButton;
