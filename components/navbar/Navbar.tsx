@@ -5,7 +5,6 @@ import Logo from "./Logo";
 import { Suspense } from 'react';
 
 
-
 function Navbar() {
   return (
 

@@ -8,6 +8,7 @@ generator client {
   provider = "prisma-client-js"
 }
 
+
 model Profile {
   id           String     @id @default(uuid())
   supabaseId      String     @unique
@@ -19,6 +20,7 @@ model Profile {
   createdAt    DateTime   @default(now())
   updatedAt    DateTime   @updatedAt
   properties      Property[]
+  reviews Review[]
   favorites    Favorite[]
 }
 
@@ -40,6 +42,7 @@ model Property {
   updatedAt   DateTime   @updatedAt
   profile     Profile    @relation(fields: [profileId], references: [supabaseId], onDelete: Cascade)
   profileId   String
+  reviews Review[]
    favorites    Favorite[]
 }
 
@@ -54,4 +57,16 @@ model Favorite {
   property   Property  @relation(fields: [propertyId], references: [id], onDelete: Cascade)
   propertyId String
 
+}
+
+model Review {
+  id        String   @id @default(uuid())
+  profile   Profile  @relation(fields: [profileId], references: [supabaseId], onDelete: Cascade)
+  profileId String
+  property   Property  @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+  propertyId String
+  rating    Int
+  comment   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

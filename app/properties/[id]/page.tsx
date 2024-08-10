@@ -13,6 +13,9 @@ import Description from '@/components/properties/Description';
 import Amenities from '@/components/properties/Amenities';
 import dynamic from 'next/dynamic';
 import { Skeleton } from '@/components/ui/skeleton';
+import SubmitReview from '@/components/reviews/SubmitReview';
+
+
 const DynamicMap = dynamic(
     () => import('@/components/properties/PropertyMap'),
     {
@@ -56,6 +59,7 @@ const profileImage = property.profile.profileImage;
     </div>
     <div className='lg:col-span-4 flex flex-col items-center'>
       {/* calendar */}
+      <SubmitReview propertyId={property.id} />
       <BookingCalendar />
     </div>
   </section>
